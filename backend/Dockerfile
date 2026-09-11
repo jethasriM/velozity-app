@@ -1,17 +1,25 @@
 FROM node:20-alpine
 
+# Prisma requires OpenSSL
 RUN apk add --no-cache openssl
 
 WORKDIR /app
 
+# Install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
+# Generate Prisma Client
 COPY prisma ./prisma
 RUN npx prisma generate
 
+# Copy application source
 COPY . .
+
+# Compile TypeScript
+RUN npm run build
 
 EXPOSE 4000
 
-CMD ["sh", "-c", "npx prisma migrate deploy && npm run dev"]
+# Start production application
+CMD ["npm", "start"]
