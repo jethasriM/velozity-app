@@ -226,6 +226,10 @@ That's it. Once the containers are healthy:
 - Backend: http://localhost:4000
 - Postgres: localhost:5432 (user/pass `postgres`/`postgres`, db `velozity`)
 
+The frontend and backend are available only on your local machine at these addresses.
+
+
+
 The backend container runs `prisma migrate deploy` automatically on start, but **seeding is a
 separate, explicit step** (so re-running `docker compose up` doesn't wipe your local data every
 time):
@@ -245,6 +249,11 @@ docker compose down -v       # stop and wipe the Postgres volume too
 The Compose file uses hardcoded dev-only JWT secrets (`dev-access-secret-change-me`, etc.) — fine
 for local use, but see [Known Limitations](#known-limitations) and change them for anything
 resembling a real deployment.
+
+### Deployed Application
+
+- **Frontend:** https://velozity-app-theta.vercel.app
+- **Backend API:** https://velozity-app-production.up.railway.app
 
 ### Option B — Manual (without Docker)
 
@@ -280,8 +289,15 @@ Use any seeded account — password is `Password123!` for all of them:
 | PM        | pm1@velozity.test, pm2@velozity.test |
 | Developer | dev1@velozity.test … dev4@velozity.test |
 
-Open two browser windows logged in as different users on the same project to see the real-time
-activity feed and notifications update live as one user moves a task.
+### Testing Real-Time Updates
+
+Open the application in two browser windows and log in as different users on the same project.
+
+For example:
+- **Window 1:** Admin
+- **Window 2:** Developer
+
+Move or update a task in one window. The activity feed and relevant notifications should update in the other window without refreshing the page.
 
 ## Notable behaviors to try
 - Move a task to **In Review** as a developer — the owning PM gets a real-time notification badge
