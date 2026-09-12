@@ -1,7 +1,18 @@
+
 # Velozity — Client Project & Task Management
 
 A full-stack internal tool for an agency to manage clients, projects, tasks, and real-time team
 activity, with strict role-based access control (Admin / Project Manager / Developer).
+
+## Live Application
+
+**[Open Velozity](https://velozity-app-theta.vercel.app)**
+
+## Source Code
+
+This repository contains the complete source code for the project.
+
+---
 
 ## Stack
 
@@ -367,3 +378,5 @@ Being upfront about what this build does *not* handle, so it isn't discovered th
   particular) increasingly restrict for third-party cookies regardless of the `SameSite`
   attribute. The most robust fix is hosting frontend and backend as subdomains of the same root
   domain (e.g. `app.example.com` / `api.example.com`) so the cookie is same-site, not cross-site.
+
+  
