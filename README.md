@@ -250,11 +250,6 @@ The Compose file uses hardcoded dev-only JWT secrets (`dev-access-secret-change-
 for local use, but see [Known Limitations](#known-limitations) and change them for anything
 resembling a real deployment.
 
-### Deployed Application
-
-- **Frontend:** https://velozity-app-theta.vercel.app
-- **Backend API:** https://velozity-app-production.up.railway.app
-
 ### Option B — Manual (without Docker)
 
 You'll need a PostgreSQL instance running yourself (locally installed, or `docker run
@@ -328,6 +323,11 @@ serverless platforms don't provide by default.
   env — the refresh-cookie logic in `auth.controller.ts` automatically switches to
   `SameSite=None` when that's set, which is required for the cookie to survive a cross-site
   request. See [Known Limitations](#known-limitations) for the caveats that come with that.
+
+  ### Deployed Application
+
+- **Frontend:** https://velozity-app-theta.vercel.app
+- **Backend API:** https://velozity-app-production.up.railway.app
 
 ---
 
